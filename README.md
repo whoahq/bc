@@ -2,20 +2,20 @@
 
 [![Push](https://github.com/whoahq/bc/workflows/Push/badge.svg)](https://github.com/whoahq/bc/actions/workflows/push.yml)
 
-BC is an unofficial open source implementation of the Blizzard Core standard
+BC is an unofficial open source implementation of the BlizzardCore standard
 library circa 2010.
 
-The Blizzard Core standard library is a collection of data structures and
+The BlizzardCore standard library is a collection of data structures and
 functions created by the talented folks at Blizzard Entertainment for use in
 their games.
 
-This project attempts to provide a version of Blizzard Core compatible with
+This project attempts to provide a version of BlizzardCore compatible with
 the version used in the final release build of World of Warcraft: Wrath of
 the Lich King in 2010: 3.3.5a (12340).
 
 In the spirit of documenting what is presumed to have existed at the time,
 this project makes every attempt to maintain the canonical names, layouts, and
-side effects of the original implementation of Blizzard Core. At the same
+side effects of the original implementation of BlizzardCore. At the same
 time, it attempts to ensure portability and compatibility with modern 64-bit
 systems.
 
