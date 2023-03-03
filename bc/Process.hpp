@@ -7,7 +7,7 @@ namespace Blizzard {
 namespace Process {
 
 // Functions
-void Sleep(uint32_t duration);
+void Sleep(uint32_t durationMs);
 
 } // namespace Process
 } // namespace Blizzard
