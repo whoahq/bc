@@ -1,5 +1,6 @@
 file(GLOB BC_SOURCES
     "*.cpp"
+    "lock/*.cpp"
 )
 
 add_library(bc STATIC
