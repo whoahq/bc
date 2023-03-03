@@ -6,14 +6,13 @@
 
 #if defined(NDEBUG)
 #define BLIZZARD_ASSERT(x) \
-    if (!(x)) {            \
-        return 0;          \
-    }
+    (void)0
 #else
 #define BLIZZARD_ASSERT(x)                               \
     if (!(x)) {                                          \
         Blizzard::Debug::Assert(#x, __FILE__, __LINE__); \
-    }
+    }                                                    \
+    (void)0
 #endif
 
 namespace Blizzard {
