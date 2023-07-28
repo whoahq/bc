@@ -1,3 +1,3 @@
-#include "bc/System_Debug.hpp"
+#include "bc/system/System_Debug.hpp"
 
 Blizzard::System_Debug::AssertCallback Blizzard::System_Debug::s_assertCallback;

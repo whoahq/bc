@@ -1,4 +1,4 @@
-#include "bc/System_Thread.hpp"
+#include "bc/system/System_Thread.hpp"
 #include "bc/Debug.hpp"
 #include "bc/Memory.hpp"
 #include "bc/String.hpp"
