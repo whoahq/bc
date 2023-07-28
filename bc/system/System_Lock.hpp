@@ -1,7 +1,7 @@
 #ifndef BC_SYSTEM_LOCK_HPP
 #define BC_SYSTEM_LOCK_HPP
 
-#include "bc/system/System_Lock.hpp"
+#include "bc/Lock.hpp"
 
 #if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
 #include <pthread.h>
