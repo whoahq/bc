@@ -1,4 +1,4 @@
-#include "bc/System_Lock.hpp"
+#include "bc/system/System_Lock.hpp"
 
 #if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
 Blizzard::Lock::DoOnceData Blizzard::System_Lock::s_initMutexAttrOnce;

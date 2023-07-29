@@ -1,7 +1,7 @@
 #ifndef BC_DEBUG_HPP
 #define BC_DEBUG_HPP
 
-#include "bc/System_Debug.hpp"
+#include "bc/system/System_Debug.hpp"
 #include <cstdint>
 
 #if defined(NDEBUG)

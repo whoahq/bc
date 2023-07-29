@@ -1,6 +1,6 @@
 #include "bc/Thread.hpp"
 #include "bc/Debug.hpp"
-#include "bc/System_Thread.hpp"
+#include "bc/system/System_Thread.hpp"
 
 void Blizzard::Thread::AllocateLocalStorage(TLSSlot* slot) {
     System_Thread::AllocateLocalStorage(slot, nullptr);

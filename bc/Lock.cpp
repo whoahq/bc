@@ -1,7 +1,7 @@
 #include "bc/Lock.hpp"
 #include "bc/Debug.hpp"
 #include "bc/Process.hpp"
-#include "bc/System_Lock.hpp"
+#include "bc/system/System_Lock.hpp"
 
 void Blizzard::Lock::DoOnce(DoOnceData& a1, void (*a2)(void*), void* a3) {
     if (!a1.done) {
