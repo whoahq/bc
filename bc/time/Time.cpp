@@ -195,7 +195,7 @@ void BreakTime(Timestamp timestamp, TimeRec& date) {
     date.sec  = static_cast<uint32_t>(systemTime.wSecond);
     date.wday = static_cast<uint32_t>(systemTime.wDayOfWeek);
     date.year = static_cast<uint32_t>(systemTime.wYear);
-    date.nsec = nsec;
+    date.nsec = static_cast<uint32_t>(nsec);
 
     bool leapYear = (date.year % 400 == 0) || (date.year % 100 != 0 && ((systemTime.wYear & 3) == 0));
 
