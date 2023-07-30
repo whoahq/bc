@@ -10,7 +10,7 @@
 #include <windows.h>
 #endif
 
-#if defined(WHOA_SYSTEM_LINUX)
+#if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
 #include <ctime>
 #include <sys/time.h>
 #endif
