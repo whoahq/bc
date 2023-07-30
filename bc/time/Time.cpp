@@ -110,11 +110,11 @@ uint64_t Microseconds() {
     return System_Time::Microseconds();
 }
 
-uint32_t Milliseconds() {
+uint64_t Milliseconds() {
     return System_Time::Milliseconds();
 }
 
-uint32_t Seconds() {
+uint64_t Seconds() {
     return System_Time::Seconds();
 }
 

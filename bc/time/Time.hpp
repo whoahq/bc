@@ -29,9 +29,9 @@ uint64_t Nanoseconds();
 
 uint64_t Microseconds();
 
-uint32_t Milliseconds();
+uint64_t Milliseconds();
 
-uint32_t Seconds();
+uint64_t Seconds();
 
 } // namespace Time
 } // namespace Blizzard
