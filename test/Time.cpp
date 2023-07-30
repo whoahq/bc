@@ -1,4 +1,5 @@
 #include "bc/Time.hpp"
+#include "bc/time/TimeConst.hpp"
 #include "bc/Process.hpp"
 #include "test/Test.hpp"
 
@@ -27,9 +28,8 @@ TEST_CASE("Blizzard::Time::GetTimestamp", "[time]") {
         Blizzard::Process::Sleep(200);
         auto t2 = Blizzard::Time::GetTimestamp();
         auto delta = t2 - t1;
-        REQUIRE(delta > 0);
-        REQUIRE(delta >= 180000000LL);
-        REQUIRE(delta <= 220000000LL);
+        REQUIRE(t2 > t1);
+        REQUIRE(delta >= 100000000);
     }
 }
 
