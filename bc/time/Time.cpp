@@ -119,6 +119,8 @@ uint64_t Seconds() {
 }
 
 Timestamp MakeTime(const TimeRec& date) {
+    Timestamp timestamp = 0;
+
 #if defined(WHOA_SYSTEM_WIN)
     // Win32 implementation
     FILETIME fileTime = {};
@@ -138,14 +140,7 @@ Timestamp MakeTime(const TimeRec& date) {
     ul.HighPart = fileTime.dwHighDateTime;
     ul.LowPart  = fileTime.dwLowDateTime;
 
-    auto timestamp = FromWinFiletime(ul.QuadPart);
-    if (timestamp == std::numeric_limits<Timestamp>::min()
-     || timestamp == std::numeric_limits<Timestamp>::max()) {
-        return timestamp;
-    }
-
-    timestamp += date.nsec;
-    return timestamp;
+    timestamp = FromWinFiletime(ul.QuadPart);
 #endif
 
 #if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
@@ -161,23 +156,29 @@ Timestamp MakeTime(const TimeRec& date) {
 
     // Convert date into UNIX timestamp
     auto unixTime = ::timegm(&t);
-    auto timestamp = FromUnixTime(unixTime);
-    if (timestamp == std::numeric_limits< || timestamp == 2147483647L) {
+    timestamp = FromUnixTime(unixTime);
+#endif
+    // Add nsec to result
+    auto nsec = date.nsec;
+
+    // overflow check
+    if ((timestamp + static_cast<Timestamp>(nsec)) < timestamp) {
         return timestamp;
     }
 
-    timestamp += date.nsec;
+    timestamp += nsec;
+
     return timestamp;
-#endif
 }
 
 void BreakTime(Timestamp timestamp, TimeRec& date) {
-    auto nsec = timestamp % TimeConst::TimestampsPerSecond;
+    auto mod = (timestamp % TimeConst::TimestampsPerSecond);
 
-    if (nsec < 0) {
-        nsec += TimeConst::TimestampsPerSecond;
+    auto nsec = static_cast<uint32_t>(mod + TimeConst::TimestampsPerSecond);
+
+    if (mod < std::numeric_limits<uint32_t>::max()) {
+        nsec = mod;
     }
-
 #if defined(WHOA_SYSTEM_WIN)
     // Win32 implementation
     ULARGE_INTEGER ul = {};
