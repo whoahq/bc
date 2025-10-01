@@ -7,7 +7,7 @@ namespace Blizzard {
 namespace System_Debug {
 
 // Types
-typedef void (*AssertCallback)(const char*, const char*, const char*, uint32_t);
+typedef void (*AssertCallback)(const char* expr, const char* a2, const char* file, uint32_t line);
 
 // Variables
 extern AssertCallback s_assertCallback;

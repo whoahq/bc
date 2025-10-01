@@ -19,7 +19,7 @@ namespace Blizzard {
 namespace Debug {
 
 // Functions
-void Assert(const char* a1, const char* a2, uint32_t a3);
+void Assert(const char* expr, const char* file, uint32_t line);
 void SetAssertHandler(Blizzard::System_Debug::AssertCallback callback);
 
 } // namespace Debug
