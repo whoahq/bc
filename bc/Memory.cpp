@@ -14,5 +14,5 @@ void* Blizzard::Memory::Allocate(uint32_t bytes, uint32_t flags, const char* fil
 }
 
 void Blizzard::Memory::Free(void* ptr) {
-    SMemFree(ptr);
+    STORM_FREE(ptr);
 }
