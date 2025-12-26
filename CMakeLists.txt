@@ -31,5 +31,9 @@ endif()
 
 add_subdirectory(lib)
 add_subdirectory(bc)
-add_subdirectory(test)
 add_subdirectory(vendor)
+
+# Only build tests when standalone
+if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
+    add_subdirectory(test)
+endif()
