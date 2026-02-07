@@ -3,7 +3,7 @@
 
 #include "bc/Lock.hpp"
 
-#if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
+#if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX) || defined(WHOA_SYSTEM_WEB)
 #include <pthread.h>
 #endif
 
@@ -11,12 +11,12 @@ namespace Blizzard {
 namespace System_Lock {
 
 // Types
-#if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
+#if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX) || defined(WHOA_SYSTEM_WEB)
 typedef pthread_mutexattr_t MutexAttr;
 #endif
 
 // Variables
-#if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
+#if defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX) || defined(WHOA_SYSTEM_WEB)
 extern Lock::DoOnceData s_initMutexAttrOnce;
 extern MutexAttr s_mutexattr;
 #endif

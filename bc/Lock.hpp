@@ -6,7 +6,7 @@
 
 #if defined(WHOA_SYSTEM_WIN)
 #include <windows.h>
-#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
+#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX) || defined(WHOA_SYSTEM_WEB)
 #include <pthread.h>
 #endif
 
@@ -16,7 +16,7 @@ namespace Lock {
 // Types
 #if defined(WHOA_SYSTEM_WIN)
 typedef CRITICAL_SECTION Mutex;
-#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
+#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX) || defined(WHOA_SYSTEM_WEB)
 typedef pthread_mutex_t Mutex;
 #endif
 
