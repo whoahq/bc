@@ -21,7 +21,7 @@ int32_t Blizzard::Lock::MutexCreate(Blizzard::Lock::Mutex& mutex) {
     InitializeCriticalSection(&mutex);
 
     return 0;
-#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
+#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX) || defined(WHOA_SYSTEM_WEB)
     Blizzard::Lock::DoOnce(System_Lock::s_initMutexAttrOnce, System_Lock::InitAttr, nullptr);
 
     auto result = pthread_mutex_init(&mutex, &System_Lock::s_mutexattr);
@@ -36,7 +36,7 @@ int32_t Blizzard::Lock::MutexEnter(Blizzard::Lock::Mutex& mutex) {
     EnterCriticalSection(&mutex);
 
     return 0;
-#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
+#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX) || defined(WHOA_SYSTEM_WEB)
     auto result = pthread_mutex_lock(&mutex);
     BLIZZARD_ASSERT(result == 0);
 
@@ -49,7 +49,7 @@ int32_t Blizzard::Lock::MutexLeave(Blizzard::Lock::Mutex& mutex) {
     LeaveCriticalSection(&mutex);
 
     return 0;
-#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX)
+#elif defined(WHOA_SYSTEM_MAC) || defined(WHOA_SYSTEM_LINUX) || defined(WHOA_SYSTEM_WEB)
     auto result = pthread_mutex_unlock(&mutex);
     BLIZZARD_ASSERT(result == 0);
 
